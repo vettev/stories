@@ -1,0 +1,16 @@
+<div class="comment" id="comment-{{ comment.id }}">
+	<p class="pull-left">Commented by: {{comment.user.username}}</p>
+	<div class="pull-right" style="color: white">
+		<p style="margin-bottom: 0;">{{comment.createdAt|date('d.m.Y')}}</p>
+		<p style="text-align: right; margin-top: 0;">{{comment.createdAt|date('H:i')}}</p>
+	</div>
+	<div class="comment-content">
+		<p>{{comment.content}}</p>
+	</div>
+	{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') and app.user.id == comment.user.id %}
+	<div class="comment-manage">
+		<a href="/comment/edit/{{ comment.id }}" class="btn btn-info ajax edit edit-comment" data-target="comment-{{ comment.id }}">Edit</a>
+		<a href="/comment/remove/{{ comment.id }}" class="btn btn-danger ajax remove remove-comment" data-target="comment-{{ comment.id }}">Remove</a>
+	</div>
+	{% endif %}
+</div>

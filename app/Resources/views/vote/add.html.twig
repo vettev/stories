@@ -1,0 +1,6 @@
+<a href="/post/{{postId}}/vote/plus" class="btn btn-success ajax vote vote-plus {% if disabled %}disabled{% endif %}" data-target="post-{{postId}}">+</a>
+{% if votes > 0 %}<span style="color: rgb(50, 255, 80);">{{votes}}</span>
+{% elseif votes < 0 %}<span style="color: rgb(255, 80, 50);">{{votes}}</span>
+{% else %} {{votes}}
+{% endif %}
+<a href="/post/{{postId}}/vote/minus" class="btn btn-danger ajax vote vote-minus {% if disabled %}disabled{% endif %}" data-target="post-{{postId}}">-</a>

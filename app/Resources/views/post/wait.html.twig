@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<h2 class="page-header">Waitin' room</h2>
+    {% for post in posts %}
+    	{% include 'post_template.html.twig' %}
+    {% endfor %}
+{% endblock %}
