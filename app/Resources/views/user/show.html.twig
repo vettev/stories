@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="user">
+		<h2 class="page-head">
+			User {{user.username}}
+		</h2>
+    	<h3>Posts: </h3>
+	    {% for post in posts %}
+	    	{% include 'post_template.html.twig' %}
+	    {% endfor %}
+    </div>
+{% endblock %}

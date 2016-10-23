@@ -130,6 +130,29 @@ class UserController extends Controller
     }
 
     /**
+     * @Route("/user/show/{id}", name="user_show")
+     */
+    public function showAction($id, Request $request)
+    { 
+        $user = $this->getDoctrine()->getRepository('AppBundle:User')->findOneById($id);
+        if(!$user)
+        {
+            return $this->redirectToRoute('homepage');
+        }
+
+        $posts = $user->getPosts();
+
+        return $this->render(
+            'user/show.html.twig',
+            array(
+                'title' => 'User show',
+                'posts' => $posts,
+                'user' => $user
+                )
+        );
+    }
+
+    /**
      * @Route("/user/logout", name="user_logout")
      */
     public function logoutAction(Request $request)

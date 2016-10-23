@@ -1,7 +1,7 @@
     	<div class="story" id="post-{{ post.id }}">
     		<div class="meta">
     			<p class="createdAt pull-right">{{post.createdAt|date('d.m.Y | H:i')}}</p>
-    			<p class="createdBy"><span style="color: rgb(50, 125, 255); font-size: 1.15em;">{{post.user.username}}</span></p>
+    			<p class="createdBy"><a href="{{path('user_show', {id: post.user.id})}}" style="color: rgb(50, 125, 255); font-size: 1.15em;">{{post.user.username}}</a></p>
     		</div>
     		<div class="post-content">
     			{{post.content}}
